@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+- Intenta darme respuestas claras y cortas
+- Soy Junior por lo tanto explicame con ejemplos que se entiendan y que sean visuales y si es necesario con referencias a documentación.
+- Respóndeme siempre en español, pero, los comentarios y docstrings siempre en inglés.
+- No quiero que me escribas la respuesta a menos que te lo pida, quiero estrujarme el cerebro, puedes darme pistas y ayudarme con referencias.
