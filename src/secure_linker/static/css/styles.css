@@ -1,42 +1,101 @@
-@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Geist+Mono:wght@100..900&display=swap");
-
-/* Aplica la fuente a todo */
-html {
-  font-family: "Bitcount Prop Single", "Geist Mono", Arial, sans-serif;
+/* Contenedor externo para centrar el grid */
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa toda la anchura de la pantalla */
+  background-color: #f9f9f9; /* Fondo de la pantalla */
+  margin: 0; /* Elimina cualquier margen */
 }
 
-body {
-  font-family: "Bitcount Prop Single", "Geist Mono", Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
+/* Sistema Grid */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  /* border: 1.5px solid #ccc; */
+  border: none;
+  border-radius: 25px;
+  background-color: #fff;
+  box-sizing: border-box;
+  min-width: 400px;
+  max-width: 600px;
+  gap: 24px; /* Separación entre elementos principales */
 }
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+form.grid-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Separación entre elementos del formulario */
 }
-h1 {
-  color: #333;
+
+.title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 2.3rem;
+  font-weight: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
 }
-.content {
-  line-height: 1.6;
-  color: #666;
+
+.input-box {
+  grid-column: 1 / span 2;
+  width: 100%;
+  min-height: 60px;
+  padding: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
-.button {
-  display: inline-block;
+
+.sliders {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.button-container {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.generate-button {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: 1.5px solid #ccc;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.generate-button:hover {
   background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-.button:hover {
-  background-color: #0056b3;
+  color: #fff;
 }
