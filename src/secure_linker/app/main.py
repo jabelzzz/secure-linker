@@ -37,6 +37,9 @@ async def obtain_form(
             "link": link,
         }
     )
+@app.get("/secure", response_class=HTMLResponse)
+async def secure(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 if __name__ == "__main__":
     import uvicorn
