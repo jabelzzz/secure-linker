@@ -16,13 +16,23 @@
         <div class="title-row">
           <h1 class="title">SecureLinker</h1>
         </div>
-        <div class="form-container">
-          <form class="form-container" method="post" action="/">
+        <div id="form-container" class="form-container">
+          <form method="post" action="/">
             <textarea
+              id="input-box"
               class="input-box"
               name="content"
               placeholder="Introduce tu contraseña, texto o URL"
             ></textarea>
+            <textarea
+              class="input-box"
+              name="token-container"
+              placeholder="Result"
+              hidden
+            >
+{{ link }}</textarea
+            >
+            <div class="result-container"></div>
             <div class="sliders">
               <label>
                 Nº de días de expiración <br />

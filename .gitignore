@@ -1,3 +1,8 @@
 roadmap.txt
 .codellm
 __pycache__
+.vscode
+.idea
+*.pyc
+*.pyo
+*.pyd
