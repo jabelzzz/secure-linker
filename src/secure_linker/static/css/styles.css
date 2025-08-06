@@ -55,12 +55,24 @@ form.grid-container {
   align-items: baseline;
 }
 
-.form-container{
+.form-container {
   min-width: 400px;
   max-width: 600px;
-  display: grid;  
+  display: grid;
 }
-.input-box {
+.textarea-box {
+  grid-column: 1 / span 2;
+  width: 100%;
+  min-height: 60px;
+  padding: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  min-width: 300px;
+}
+.token-input-box {
   grid-column: 1 / span 2;
   width: 100%;
   min-height: 60px;

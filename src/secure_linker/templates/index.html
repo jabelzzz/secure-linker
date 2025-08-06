@@ -19,22 +19,23 @@
         <div id="form-container" class="form-container">
           <form method="post" action="/">
             <textarea
-              id="content-container"
-              class="input-box"
+              id="textarea-box"
+              class="textarea-box"
               name="content"
               placeholder="Introduce tu contraseña, texto o URL"
               required              
+              {% if link %}hidden{% endif %}
             ></textarea>
-            <textarea
-              id="token-container"
-              class="input-box"
+            <input
+              type="text"
+              id="token-input-box"
+              class="token-input-box"
               name="token-container"
               placeholder="Result"
-              hidden
+              value="{{ link if link else '' }}"
               readonly
-            >
-{{ link }}</textarea
-            >
+              {% if not link %}hidden{% endif %}
+            />
             <div class="result-container"></div>
             <div class="sliders">
               <label>

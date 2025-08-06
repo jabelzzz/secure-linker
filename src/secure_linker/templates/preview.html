@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="{{ url_for('static', path='css/styles.css') }}"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="{{ url_for('static', path='/images/icon.png') }}" />
-    <title>Secure Linker</title>
-  </head>
-  <body>
+    <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet" />
+    <title>Vista de contenido seguro</title>
+</head>
+<body>
     <div class="outer-container">
-      <div class="grid-container">
-        <div class="title-row">
-          <h1 class="title">SecureLinker</h1>
+        <div class="grid-container">
+            <div class="title-row">
+                <h1 class="title">Vista de contenido seguro</h1>
+            </div>
+            <div class="form-container">
+                {% if expired %}
+                    <div class="result-container">
+                        <p style="color: red;">Este enlace ha expirado o ha superado el número de visualizaciones.</p>
+                    </div>
+                {% elif content %}
+                    <div class="result-container">
+                        <label>Contenido protegido:</label>
+                        <textarea readonly style="width:100%;min-height:60px;">{{ content }}</textarea>
+                    </div>
+                {% else %}
+                    <div class="result-container">
+                        <p style="color: red;">Token no válido.</p>
+                    </div>
+                {% endif %}
+                <div class="button-container">
+                    <a href="/" class="generate-button">Volver</a>
+                </div>
+            </div>
         </div>
-        <div id="form-container" class="form-container">
-          <form method="get" action="/secure">
-            <textarea
-              id="token-container"
-              class="input-box"
-              name="token-container"
-              placeholder="Result"
-              hidden
-              readonly
-            >
-{{ link }}</textarea
-            >
-            <div class="result-container"></div>
-            <div class="sliders">
-              <label>
-                Nº de días de expiración <br />
-                <input
-                  type="range"
-                  min="1"
-                  max="15"
-                  id="exp-days-range"
-                  value="5"
+    </div>
+</body>
+</html>
                   name="days"
                   oninput="document.getElementById('exp-days-value').textContent = this.value;"
                 />
