@@ -20,3 +20,7 @@ class SecureLink(Base):
         if self.visualizations > 0:
             self.visualizations -= 1
             db.commit()
+    def decrement_days(self, db):
+        if self.days > 0:
+            self.days -= 1
+            db.commit()

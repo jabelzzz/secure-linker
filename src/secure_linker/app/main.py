@@ -1,16 +1,16 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()  # Carga las variables de entorno antes de cualquier otro import
+
+from datetime import datetime, timedelta
+from .crud import create_secure_link, get_secure_link, get_db
+from .models import SecureLink
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
 from .generate_token import generate_secure_link
-# Modelos y acceso a BDD
-from .models import SecureLink
-from .crud import create_secure_link, get_secure_link, get_db
 
-
-from datetime import datetime, timedelta
 
 app = FastAPI()
 
@@ -21,6 +21,7 @@ app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 templates_dir = os.path.join(BASE_DIR, "../templates")
 templates = Jinja2Templates(directory=templates_dir)
+
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request, token: str = None):
@@ -51,7 +52,6 @@ async def obtain_form(
     return RedirectResponse(url=f"/?token={token}", status_code=303)
 
 
-
 @app.get("/secure/{token}", response_class=HTMLResponse)
 async def secure(request: Request, token: str):
     db = next(get_db())
@@ -67,7 +67,8 @@ async def secure(request: Request, token: str):
             link_data.decrement_visualizations(db)
     return templates.TemplateResponse(
         "preview.html",
-        {"request": request, "content": content, "expired": expired, "token": token}
+        {"request": request, "content": content,
+            "expired": expired, "token": token}
     )
 
 if __name__ == "__main__":

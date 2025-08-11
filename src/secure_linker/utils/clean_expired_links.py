@@ -2,10 +2,9 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
-from .models import SecureLink, Base
+from src.secure_linker.app.models import SecureLink
 
-# Cambia la URL de conexión según tu configuración
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost/securelinker")
+DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
